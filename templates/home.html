@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHealth - Menú Principal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Usamos los mismos estilos del dashboard de reportes */
+        .report-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas */
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .menu-button {
+            padding: 30px;
+            text-align: center;
+            font-size: 1.2em;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a TechHealth</h1>
+    </header>
+
+    <main>
+        <section class="module">
+            <h2>Menú Principal</h2>
+            <p>Seleccione el módulo al que desea ingresar:</p>
+
+            <div class="report-menu">
+                <a href="{% url 'dashboard_admin' %}" class="button menu-button">
+                    Módulo 1: Pacientes
+                </a>
+
+                <a href="{% url 'dashboard_medico' %}" class="button menu-button">
+                    Módulo 3: Clínica (Médicos)
+                </a>
+
+                <a href="{% url 'dashboard_reportes' %}" class="button menu-button">
+                    Módulo 4: Reportes (Admin)
+                </a>
+                
+                </div>
+
+        </section>
+    </main>
+</body>
+</html>

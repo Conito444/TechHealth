@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<header>
+    <h1>Gestión Clínica TechHealth</h1>
+</header>
+
+<main>
+    <section class="module">
+        
+        <h2>Módulo 2: Agendar Cita para</h2>
+        <h3>{{ paciente.nombre_completo }}</h3>
+        <p>(RUT: {{ paciente.rut }})</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{ form.as_p }} 
+
+            <button type="submit" class="primary">Guardar Cita</button>
+            <a href="{% url 'dashboard_admin' %}" class="button">Cancelar</a>
+        </form>
+        
+    </section>
+</main>

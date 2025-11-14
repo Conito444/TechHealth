@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHealth - Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Gestión Clínica TechHealth</h1>
+    </header>
+
+    <main>
+        <section class="module">
+            <h2>Módulo 1: Búsqueda de Pacientes</h2>
+
+            <a href="{% url 'registrar_paciente' %}" class="button primary">
+                Registrar Nuevo Paciente
+            </a>
+
+            <hr>
+
+            <form id="form-buscar-paciente" method="POST">
+                {% csrf_token %} 
+                <label for="rut-busqueda">Buscar Paciente por RUT:</label>
+                <input type="text" id="rut-busqueda" name="rut-busqueda" placeholder="12345678-9" required>
+                <button type="submit">Buscar</button>
+            </form>
+
+            <hr>
+
+            <div id="resultados">
+                {% if paciente_encontrado %}
+                    <h3>Paciente Encontrado</h3>
+                    <p><strong>Nombre:</strong> {{ paciente_encontrado.nombre_completo }}</p>
+                    <p><strong>RUT:</strong> {{ paciente_encontrado.rut }}</p>
+                    <p><strong>Previsión:</strong> {{ paciente_encontrado.prevision }}</p>
+                    
+                    <a href="{% url 'crear_cita' paciente_encontrado.id %}" class="button primary">
+                        Agendar Nueva Cita
+                    </a>
+                    
+                {% elif error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+            </div>
+            
+        </section>
+    </main>
+</body>
+</html>

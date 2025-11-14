@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<header>
+    <h1>Gestión Clínica TechHealth</h1>
+</header>
+
+<main>
+    <section class="module">
+        <h2>Módulo 1: Registrar Nuevo Paciente</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{ form.as_p }} 
+            <button type="submit" class="primary">Guardar Paciente</button>
+            
+            <a href="{% url 'dashboard_admin' %}" class="button">
+                Cancelar y Volver
+            </a>
+        </form>
+        
+    </section>
+</main>
+
+
+</a>
+
+<hr>
+
+<form id="form-buscar-paciente" method="POST">

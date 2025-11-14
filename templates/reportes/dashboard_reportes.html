@@ -1,0 +1,44 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<header>
+    <h1>Gestión Clínica TechHealth</h1>
+</header>
+
+<main>
+    <section class="module">
+        <h2>Módulo 4: Administración y Reportes</h2>
+
+        <div class="report-menu">
+            <a href="{% url 'reporte_atenciones' %}" class="button menu-button">
+                Reporte de Atenciones
+            </a>
+            
+            <a href="{% url 'reporte_ingresos' %}" class="button menu-button">
+                Reporte de Ingresos Mensuales
+            </a>
+
+            <a href="{% url 'gestion_stock' %}" class="button menu-button">
+                Gestión de Stock de Insumos
+            </a>
+            
+            <a href="{% url 'gestion_personal' %}" class="button menu-button">
+                Gestión de Personal
+            </a>
+            
+            </div>
+
+    </section>
+</main>
+<style>
+    .report-menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas */
+        gap: 20px;
+    }
+    .menu-button {
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        background-color: #f0f0f0;
+    }
+</style>

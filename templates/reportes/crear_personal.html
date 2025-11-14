@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<header>
+    <h1>Crear Nuevo Personal</h1>
+</header>
+
+<main>
+    <section class="module">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <button type="submit" class="primary">Guardar Personal</button>
+            <a href="{% url 'gestion_personal' %}" class="button">Cancelar</a>
+        </form>
+    </section>
+</main>

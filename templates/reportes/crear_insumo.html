@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<header>
+    <h1>Añadir Nuevo Insumo al Stock</h1>
+</header>
+
+<main>
+    <section class="module">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <button type="submit" class="primary">Guardar Insumo</button>
+            <a href="{% url 'gestion_stock' %}" class="button">Cancelar</a>
+        </form>
+    </section>
+</main>

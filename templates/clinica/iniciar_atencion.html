@@ -1,0 +1,46 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<header>
+    <h1>Gestión Clínica TechHealth</h1>
+</header>
+
+<main>
+    <section class="module">
+        <h2>Ficha de Atención Clínica</h2>
+        
+        <div class="patient-header">
+            <p><strong>Paciente:</strong> {{ paciente.nombre_completo }}</p>
+            <p><strong>RUT:</strong> {{ paciente.rut }}</p>
+            <p><strong>Cita:</strong> {{ cita.especialidad }} ({{ cita.fecha_hora|date:"Y-m-d H:i" }})</p>
+        </div>
+
+        <hr>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+
+            <button type="submit" class="primary">Finalizar Consulta</button>
+            <a href="{% url 'dashboard_medico' %}" class="button">Volver al Dashboard</a>
+        </form>
+        
+    </section>
+</main>
+<style>
+    .patient-header {
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    /* Mejora visual para los campos de texto grandes */
+    textarea {
+        width: calc(100% - 24px);
+        padding: 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>

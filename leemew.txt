@@ -1,0 +1,5 @@
+admin
+qwerty2025
+--------------
+python -m venv venv
+pip list Django
